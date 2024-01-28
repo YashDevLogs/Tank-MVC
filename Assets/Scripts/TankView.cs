@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class TankView : MonoBehaviour
@@ -9,6 +10,8 @@ public class TankView : MonoBehaviour
     private float rotation;
 
     public Rigidbody rb;
+
+    public MeshRenderer[] Childs;
      
 
     void Start()
@@ -47,5 +50,13 @@ public class TankView : MonoBehaviour
     }
 
     public Rigidbody GetRigidbody() { return rb; }
+
+    public void ChangeTheColor(Material color)
+    {
+        for (int i = 0; i < Childs.Length; i++)
+        {
+            Childs[i].material = color;  
+        }
+    }
 }
 
